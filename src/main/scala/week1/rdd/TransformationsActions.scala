@@ -1,7 +1,7 @@
 package week1.rdd
 
 import org.apache.spark.rdd.RDD
-import org.apache.spark.sql.SparkSession
+import week1.MyContext.sc
 
 /**
 
@@ -17,12 +17,6 @@ Transformations: RDD => RDD
  */
 
 object TransformationsActions extends App {
-
-  val spark:SparkSession = SparkSession.builder().master("local[1]")
-    .appName("SparkExample")
-    .getOrCreate()
-
-  val sc = spark.sparkContext // some basic set up for example purposes
 
   val largeList: List[String] = List("a", "bc", "def", "hijk")
   val wordsRdd: RDD[String] = sc.parallelize(largeList)
