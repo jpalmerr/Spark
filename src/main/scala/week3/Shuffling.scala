@@ -1,7 +1,6 @@
 package week3
 
-import org.apache.spark.rdd.RDD
-import org.apache.spark.sql.SparkSession
+import week3.MyData._
 
 object Shuffling extends App {
 
@@ -18,15 +17,6 @@ object Shuffling extends App {
  *
  * Shuffles can be an enormous hit to efficiency
  */
-
-  case class CFFPurchase(customerId: Int, destination: String, price: Double)
-
-  val CFFList: List[CFFPurchase] = List(
-    CFFPurchase(100, "Geneva", 22.25), CFFPurchase(300, "Zurich", 42.10), CFFPurchase(100, "Fribourg", 12.40),
-    CFFPurchase(200, "St Gallen", 8.20), CFFPurchase(100, "Lucerne", 31.60), CFFPurchase(300, "Basel", 16.20)
-  )
-
-  val purchasesRdd: RDD[CFFPurchase] = sc.parallelize(CFFList)
 
   // how many trips, how much money spent by each individual customer
 
