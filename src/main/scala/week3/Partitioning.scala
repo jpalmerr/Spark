@@ -43,6 +43,16 @@ object Partitioning extends App {
 
   // partition transformations (except map/flatmap as they can change the keys)
 
+  /* Optimizing
+   * To optimize, partition the data initially => will carry it over
+   */
 
+  val optPurchasesPerCustomer = purchasesRdd.map(p => (p.customerId, p.price)).groupByKey()
+
+  /**
+   * A shuffle can occur when the resulting RDD depends on other elements from the same RDD or another RDD
+   *
+   * .toDebugString can help you see this
+   */
 
 }
